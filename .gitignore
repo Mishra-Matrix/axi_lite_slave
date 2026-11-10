@@ -1,0 +1,19 @@
+# Simulation outputs
+*.vcd
+*.wlf
+*.wdb
+transcript
+work/
+qrun.out/
+xsim.dir/
+# Vivado project / run files
+*.jou
+*.log
+*.pb
+*.str
+.Xil/
+*.cache/
+*.runs/
+*.hw/
+*.ip_user_files/
+*.sim/

@@ -1,0 +1,104 @@
+[2026-11-10 06:40:37 UTC] qrun -batch -access=rw+/. '-timescale' '1ns/1ns' -mfcu design.sv testbench.sv '-voptargs=+acc=npr'  -do  " run -all; exit"  
+QuestaSim-64 qrun 2025.2 Utility 2025.05 May 31 2025
+Start time: 01:40:37 on Nov 10,2026
+qrun -batch -access=rw+/. -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+** Note: (qrun-220) 'modelsim.ini' is used as the ini file.
+Creating library 'qrun.out/work'.
+QuestaSim-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+Start time: 01:40:37 on Nov 10,2026
+vlog -timescale 1ns/1ns -mfcu design.sv testbench.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+** Note: (vlog-220) 'modelsim.ini' is used as the ini file.
+-- Compiling module axil_slave
+-- Compiling module axil_slave_sva
+-- Compiling package design_sv_unit
+-- Compiling module tb_axil_slave
+
+Top level modules:
+	tb_axil_slave
+** Warning: (vlog-2650) 'bind' found in compilation unit scope. Please use -mfcu -cuname to ensure that 'bind' gets elaborated.
+End time: 01:40:37 on Nov 10,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+QuestaSim-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 01:40:37 on Nov 10,2026
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+2+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+** Note: (vopt-220) 'modelsim.ini' is used as the ini file.
+
+Top level modules:
+	tb_axil_slave
+
+Analyzing design...
+-- Loading module tb_axil_slave
+-- Loading module axil_slave
+-- Loading module axil_slave_sva
+Optimizing 4 design-units (inlining 0/3 module instances):
+-- Optimizing package design_sv_unit(fast)
+-- Optimizing module tb_axil_slave(fast)
+-- Optimizing module axil_slave_sva(fast)
+-- Optimizing module axil_slave(fast)
+Optimized design name is qrun_opt
+End time: 01:40:38 on Nov 10,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
+# ** Note: (vsim-220) 'modelsim.ini' is used as the ini file.
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 01:40:38 on Nov 10,2026
+# //  Questa Sim-64
+# //  Version 2025.2 linux_x86_64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.design_sv_unit(fast)
+# Loading work.tb_axil_slave(fast)
+# Loading work.axil_slave(fast)
+# Loading work.axil_slave_sva(fast)
+# 
+# run -all
+# Running axil_slave test, ADDR_WIDTH=8
+# [205000] PASS: T1 reset values
+# [815000] PASS: T2 RW registers, AW+W same cycle / AW first / W first
+# [1065000] PASS: T3 WSTRB byte enables
+# [1225000] PASS: T4 read-only registers (STATUS, ID)
+# [1475000] PASS: T5 unmapped addresses return SLVERR
+# [1795000] PASS: T6 IRQ_STATUS write-1-to-clear and irq_o masking
+# [1945000] PASS: T7 hardware set wins over simultaneous W1C clear
+# [87875000] PASS: T8 2000 random transactions with BREADY/RREADY back-pressure
+# [103235000] PASS: T9 concurrent read and write streams
+# [103455000] PASS: T10 reset clears registers
+# 
+# ================ AXI4-LITE SLAVE TEST SUMMARY ================
+#  Writes checked            : 1291
+#    AW+W same cycle         : 416
+#    AW first                : 429
+#    W first                 : 446
+#  Reads checked             : 1377
+#  OKAY / SLVERR responses   : 2079 / 589
+#  Write coverage            : 100.00 %
+#  Read coverage             : 100.00 %
+#  Errors                    : 0
+#  RESULT                    : *** TEST PASSED ***
+# ==============================================================
+# ** Note: $finish    : testbench.sv(531)
+#    Time: 103455 ns  Iteration: 1  Instance: /tb_axil_slave
+# End time: 01:40:39 on Nov 10,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+End time: 01:40:39 on Nov 10,2026, Elapsed time: 0:00:02
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   1
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:   0, Warnings:   0
+  Totals: Errors:   0, Warnings:   2
+Finding VCD file...
+./dump.vcd
+[2026-11-10 06:40:40 UTC] Opening EPWave...
+Done
