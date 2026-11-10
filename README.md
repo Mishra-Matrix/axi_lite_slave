@@ -139,25 +139,15 @@ all `VALID` outputs are low during reset.
 
 ## How to Run
 
-**EDA Playground:** paste `rtl/axil_slave.sv` and `sva/axil_slave_sva.sv` into
-the Design box and `tb/tb_axil_slave.sv` into the Testbench box. Set Top module
-to `tb_axil_slave`, choose Siemens Questa, tick "Open EPWave after run".
+Simulation (Questa / ModelSim):
 
-**Questa / ModelSim:**
-```
-cd sim
-vsim -c -do run_questa.do
-```
+    cd sim
+    vsim -c -do run_questa.do
 
-**Vivado simulator:**
-```
-cd sim
-sh run_xsim.sh
-```
+Verified with Questa 2025.2.
 
-**Vivado synthesis:** add `rtl/axil_slave.sv` as a design source and
-`constraints/axil_slave.xdc` as the constraint file, synthesis option
-`-mode out_of_context`.
+Synthesis: Vivado, out-of-context mode, using `rtl/axil_slave.sv` and
+`constraints/axil_slave.xdc`.
 
 ## Results
 
