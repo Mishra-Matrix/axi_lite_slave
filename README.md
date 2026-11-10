@@ -182,15 +182,3 @@ sh run_xsim.sh
 
 Full simulation log: [sim/sim_log.txt](sim/sim_log.txt)
 
-## Interview Questions This Project Answers
-
-- What are the five AXI channels, and why are AW and W separate?
-- What is a VALID/READY handshake? Why must VALID never wait for READY?
-- Can the write data arrive before the write address? How does this design handle it?
-- When is the slave allowed to send the write response?
-- What do OKAY, EXOKAY, SLVERR and DECERR mean?
-- What does WSTRB do?
-- What is a write-1-to-clear register, and what happens if hardware sets a bit while software clears it?
-- Why should register reads have no side effects?
-- What limits the throughput of this slave, and how would you make it handle one transaction per cycle?
-- What is the difference between AXI4-Lite and full AXI4 (bursts, IDs, outstanding transactions)?
